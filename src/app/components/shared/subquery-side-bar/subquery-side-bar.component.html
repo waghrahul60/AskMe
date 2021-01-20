@@ -1,13 +1,13 @@
-<div class="subquery-sidebar col-12">
-    <div>
+<mat-card class="subquery-sidebar col-12">
+    <div  class="heading">
         Browse Sebquery
     </div>
-    <hr/>
+   
     <li *ngFor="let s of subquery" class="list-group-item">
         <a routerLink ="/view-subquery/{{s.id}}">{{ s.name }}</a>
-        <hr/>
+        
     </li>
     <div style="text-align: center;" *ngIf="displayAll">
         <a style="font-weight: bold;" routerLink="/view-subquery">View All</a>
     </div>
-</div>
+</mat-card>

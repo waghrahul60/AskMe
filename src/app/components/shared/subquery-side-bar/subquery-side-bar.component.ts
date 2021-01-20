@@ -15,8 +15,8 @@ export class SubquerySideBarComponent implements OnInit {
 
   constructor(private subqueryService:SubqueryService) {
     this.subqueryService.getAllSubqueries().subscribe(data =>{
-      if(data.length > 2){
-        this.subquery = data.splice(0,2);
+      if(data.length > 4){
+        this.subquery = data.splice(0,4);
         this.displayAll = true;
       }else{
         this.subquery = data;

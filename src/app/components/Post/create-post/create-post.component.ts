@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { PostService } from 'src/app/service/post.service';
 import { SubqueryModel } from 'src/app/service/subquery-model';
@@ -48,7 +49,8 @@ export class CreatePostComponent implements OnInit {
 
   constructor(private router: Router, 
               private postService: PostService,
-              private subqueryService:SubqueryService) { 
+              private subqueryService:SubqueryService,
+              private toastr: ToastrService,) { 
                 this.postPayload ={
                   postName:'',
                   url:'',
@@ -73,8 +75,10 @@ export class CreatePostComponent implements OnInit {
 
     this.postService.createPost(this.postPayload).subscribe(data=>{
       this.router.navigateByUrl('/user');
+      this.toastr.success("Question Created");
     },error =>{
       throwError(error);
+      this.toastr.warning("Data Required!!!!");
     })
   }
 
