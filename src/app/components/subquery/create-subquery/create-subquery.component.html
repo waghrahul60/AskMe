@@ -1,10 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col">
+      <div class="col-md-3"></div>
+        <mat-card class="col-md-6 main mt-5">
+          <div class="row">
             <form 
             (ngSubmit)="createSubquery()"
             class="example-form">
-              <h1 style="align-items: center;">Create SubQuery Page</h1>
+              <h1 style="text-align: center;">Create SubQuery Page</h1>
 
               <mat-form-field class="example-full-width form-group">
                 <mat-label>Subquery Name</mat-label>
@@ -23,7 +25,7 @@
                 <input type="text" matInput [formControl]="descFormControl" [errorStateMatcher]="matcher"
                        placeholder="Subquery Description">
                 <mat-error *ngIf="descFormControl.hasError('password') && !descFormControl.hasError('required')">
-                        Please enter a valid Password
+                        Please enter a  Description
                 </mat-error>
                 <mat-error *ngIf="descFormControl.hasError('required')">
                     Description is <strong>required</strong>
@@ -37,6 +39,8 @@
               <a class="demo"  routerLink="/home">Back</a>
         
             </form>
-        </div>
+          </div>
+        </mat-card>
+      <div class="col-md-3"></div>
     </div>
 </div>

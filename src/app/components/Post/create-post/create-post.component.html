@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-6">
-            <mat-card class="a row justify-content-center align-items-center example-card">
+    <div class="row mt-5">
+        <div class="col-md-2 col-sm-0"></div>
+        <div class="col-md-6 col-sm-12">
+            <mat-card class="row justify-content-center align-items-center example-card" style="height: 700px;">
                 <form (ngSubmit)="createPost()" class="example-form">
 
                     <h1 style="justify-content: center;" >Create Question</h1>
@@ -53,18 +53,15 @@
                         }"
                     ></editor>
 
-                    <div style="margin-top: 5px" class="float-right">
+                    <div style="margin-top: 5px"  class="float-right mt-3">
                         <button (click)="discardPost()" mat-raised-button class="mr-3">Discard</button>
                         <button type="submit" mat-raised-button color="primary">Create</button>
                       </div>
 
-                   
-                    <br>
-                    <a class="demo" routerLink="/register">Back</a>
                 </form>
             </mat-card>
         </div>
-        <div class="col-2"></div>
+        <div class="col-md-2 col-sm-0"></div>
     </div>
 </div>
 

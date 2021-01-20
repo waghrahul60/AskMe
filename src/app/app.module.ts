@@ -34,6 +34,7 @@ import { SubquerySideBarComponent } from './components/shared/subquery-side-bar/
 import { PostLookComponent } from './components/shared/post-look/post-look.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { VoteButtonComponent } from './components/shared/vote-button/vote-button.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { VoteButtonComponent } from './components/shared/vote-button/vote-button
     SubquerySideBarComponent,
     PostLookComponent,
     VoteButtonComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
