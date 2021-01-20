@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form 
+            (ngSubmit)="createSubquery()"
+            class="example-form">
+              <h1 style="align-items: center;">Create SubQuery Page</h1>
+
+              <mat-form-field class="example-full-width form-group">
+                <mat-label>Subquery Name</mat-label>
+
+                <input type="text" matInput [formControl]="subqueryFormControl" [errorStateMatcher]="matcher"
+                       placeholder="Name">
+                       
+                <mat-error *ngIf="subqueryFormControl.hasError('required')">
+                  subquery name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+          
+
+              <mat-form-field class="example-full-width form-group">
+                <mat-label>Description</mat-label>
+                <input type="text" matInput [formControl]="descFormControl" [errorStateMatcher]="matcher"
+                       placeholder="Subquery Description">
+                <mat-error *ngIf="descFormControl.hasError('password') && !descFormControl.hasError('required')">
+                        Please enter a valid Password
+                </mat-error>
+                <mat-error *ngIf="descFormControl.hasError('required')">
+                    Description is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+          
+              <div class="example-button-row" class="demo">
+                <button type="submit" mat-raised-button color="primary" class="justify-content-center d-flex align-items-center" >Create</button>
+              </div>
+              <br>
+              <a class="demo"  routerLink="/home">Back</a>
+        
+            </form>
+        </div>
+    </div>
+</div>

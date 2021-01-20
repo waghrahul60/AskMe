@@ -1,0 +1,133 @@
+<div class="container-fluid m-0">
+    <div class="row m-0 mt-3">
+        <div class=" col-md-4 col-sm-1"></div>
+        <mat-card class="col-md-4 col-sm-4 main">
+            <div class="p-0 mt-0" >  
+                <form 
+               (ngSubmit)="signup()"
+                class="example-form">
+
+                  <h1 style="padding-top: 0%; margin-top: 0px;">Registration</h1>
+
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>First Name</mat-label>
+
+                    <input type="firstName" 
+                          matInput [formControl]="firstNameFormControl" 
+                          [errorStateMatcher]="matcher"
+                      
+                          placeholder="Enter first name">
+
+                    <mat-error *ngIf="firstNameFormControl.hasError('firstName') && !firstNameFormControl.hasError('required')">
+                      Please enter a valid First Name
+                    </mat-error>
+                    <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                      First Name is <strong>required</strong>
+                    </mat-error>
+                    
+
+                  </mat-form-field>
+              
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Last Name</mat-label>
+
+                    <input type="lastName" matInput [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Enter last name">
+
+                    <mat-error *ngIf="lastNameFormControl.hasError('lastName') && !lastNameFormControl.hasError('required')">
+                      Please enter a valid Last Name
+                    </mat-error>
+
+                    <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                     Last Name is <strong>required</strong>
+                    </mat-error>
+                    
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Username</mat-label>
+
+                    <input type="username" matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex.peterbiden">
+
+                    <mat-error *ngIf="usernameFormControl.hasError('username') && !usernameFormControl.hasError('required')">
+                      Please enter a valid username
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                      Username is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+                      Userame must be at least 3 characters
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('maxlength')">
+                      Username must be at most 20 characters
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('pattern')">
+                      Cannot allow Special Symbol Except . And _
+                    </mat-error>
+                  </mat-form-field>
+              
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+              
+                  <mat-radio-group [formControl]="whoAreYou" aria-label="Select an option" class="form-group">
+                    <span>Role : </span>
+                    <mat-radio-button value="Student">Student</mat-radio-button>
+                    <mat-radio-button value="Mentor">Mentor</mat-radio-button>
+                    <mat-radio-button value="Faculty">Faculty</mat-radio-button>
+                  </mat-radio-group>
+                  
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex.abc@12345">
+                    <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+                      Please enter a valid Password
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                     Password is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+                      Password must be at minimum 8 characters
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+                      Password must be at most 20 characters
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+                      Password Must Contain One capital and one small latter and one number
+                    </mat-error>
+                  </mat-form-field>
+              
+                  
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="password" matInput [formControl]="confirmpasswordFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex. abc@12345">
+                    <mat-error *ngIf="confirmpasswordFormControl.hasError('confirmpassword') && !confirmpasswordFormControl.hasError('required')">
+                      Please enter a valid confirm password
+                    </mat-error>
+                    <mat-error *ngIf="confirmpasswordFormControl.hasError('required')">
+                      Confirm password is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  
+                  <div class="example-button-row" class="demo">
+                    <button type="submit" class="sign-up" mat-raised-button color="primary">Registration</button>
+                  </div>
+                  <br>
+                  <a class="demo" routerLink="/login">Already an User? Login </a>
+                </form>
+              </div>
+        </mat-card>
+        <div class=" col-md-4 col-sm-1"></div>
+    </div>
+</div>

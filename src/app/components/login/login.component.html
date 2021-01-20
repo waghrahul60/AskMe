@@ -1,0 +1,58 @@
+<div class="container-fluid m-0">
+    <div class="row m-0 mt-5">
+        <div class=" col-md-4 col-sm-1"></div>
+        <mat-card class="col-md-4 col-sm-4 main">
+            <div class=" row" style="background: white;">  
+                <form 
+                (ngSubmit)="login()"
+                class="example-form">
+
+                  <h1 style="align-items: center;">Login</h1>
+
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Username</mat-label>
+
+                    <input type="username" matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex.peterbiden">
+                           
+                    <mat-error *ngIf="usernameFormControl.hasError('username') && !usernameFormControl.hasError('required')">
+                      Please enter a valid username
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                      Username is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+              
+
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex.abc@12345">
+                    <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+                      Please enter a valid Password
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                     Password is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+              
+                  <div class="example-button-row" class="demo">
+                    <button type="submit" mat-raised-button color="primary" class="justify-content-center d-flex align-items-center" >Login</button>
+                  </div>
+                  <br>
+                  <a class="demo"  routerLink="/register">Create an account </a>
+
+                  <div class="alert alert-danger" role="alert" *ngIf='this.isError'>
+                    Login Failed. Please check your credentials and try again.
+                  </div>
+
+                  <div class="alert alert-primary" role="alert" *ngIf='this.registerSuccessMessage'>
+                    {{registerSuccessMessage}}
+                  </div>
+                </form>
+              </div>
+              
+            </mat-card>
+        <div class=" col-md-4 col-sm-1"></div>
+    </div>
+</div>

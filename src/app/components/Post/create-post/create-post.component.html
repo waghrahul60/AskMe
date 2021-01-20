@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <mat-card class="a row justify-content-center align-items-center example-card">
+                <form (ngSubmit)="createPost()" class="example-form">
+
+                    <h1 style="justify-content: center;" >Create Question</h1>
+
+                    <mat-form-field class="example-full-width form-group">
+                        <mat-label>Title</mat-label>
+
+                        <input type="text" matInput [formControl]="titleFormControl" [errorStateMatcher]="matcher"
+                            placeholder="">
+
+                        <mat-error *ngIf="titleFormControl.hasError('required')">
+                            Title is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="example-full-width form-group">
+                        <mat-label>URL</mat-label>
+                        <input type="text" matInput [formControl]="urlFormControl" [errorStateMatcher]="matcher"
+                            placeholder="http://">
+                    </mat-form-field>
+
+
+                
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select Subquery</mat-label>
+                        <mat-select  [formControl]="subQueryFormControl">
+                            <mat-option *ngFor="let s of subquery" [value]="s.name">
+                                {{s.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field> 
+
+                    <p>Post Description :</p>
+                    <editor [formControl]="descriptionFormControl"
+                     [init]="{
+                            height: 300,
+                            menubar: false,
+                            plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                            'undo redo | formatselect | bold italic backcolor | \
+                            alignleft aligncenter alignright alignjustify | \
+                            bullist numlist outdent indent | removeformat | help'
+                        }"
+                    ></editor>
+
+                    <div style="margin-top: 5px" class="float-right">
+                        <button (click)="discardPost()" mat-raised-button class="mr-3">Discard</button>
+                        <button type="submit" mat-raised-button color="primary">Create</button>
+                      </div>
+
+                   
+                    <br>
+                    <a class="demo" routerLink="/register">Back</a>
+                </form>
+            </mat-card>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
