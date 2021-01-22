@@ -42,7 +42,7 @@
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon> {{ username }}<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="user-profile/{{username}}">My account</a>
           <a (click)="logout()" class="dropdown-item waves-light" mdbWavesEffect href="#" >Log out</a>
         </div>
       </li>

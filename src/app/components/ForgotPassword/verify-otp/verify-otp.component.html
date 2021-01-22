@@ -1,0 +1,38 @@
+<p>verify-otp works!</p>
+<div class="container-fluid m-0">
+    <div class="row m-0 mt-5">
+        <div class=" col-md-4 col-sm-1"></div>
+        <mat-card class="col-md-4 col-sm-4 main">
+            <div class=" row" style="background: white;">  
+                <form 
+                (ngSubmit)="verifyOtp()"
+                class="example-form">
+
+                  <h1 style="align-items: center;">Verify OTP</h1>
+
+                  <mat-form-field class="example-full-width form-group">
+                    <mat-label>Enter Your OTP</mat-label>
+                    <input type="number" matInput [formControl]="otpormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="otpormControl.hasError('email') && !otpormControl.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="otpormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  
+              
+                  <div class="example-button-row" class="demo">
+                    <button type="submit" mat-raised-button color="primary" routerLink=""class="justify-content-center d-flex align-items-center" >Verify</button>
+                  </div>
+                  <br>
+                  <a class="demo"  routerLink="/register">Create an account </a>
+                </form>
+              </div>
+              
+            </mat-card>
+        <div class=" col-md-4 col-sm-1"></div>
+    </div>
+</div>

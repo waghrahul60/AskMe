@@ -38,6 +38,15 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { ViewSubqueryComponent } from './components/subquery/view-subquery/view-subquery.component';
 import { AllUsersComponent } from './components/shared/all-users/all-users.component';
 import { tokenInterceptor } from './token-interceptor';
+import { ForgotPasswordComponent } from './components/ForgotPassword/forgot-password/forgot-password.component';
+import { VerifyOTPComponent } from './components/ForgotPassword/verify-otp/verify-otp.component';
+import { MyProfileComponent } from './components/User/my-profile/my-profile.component';
+import { MyPostComponent } from './components/User/my-post/my-post.component';
+import { MyCommentsComponent } from './components/User/my-comments/my-comments.component';
+import { UserProfileComponent } from './components/User/user-profile/user-profile.component';
+import { ViewUserProfileComponent } from './components/shared/view-user-profile/view-user-profile.component';
+
+
 
 @NgModule({
   declarations: [
@@ -59,6 +68,13 @@ import { tokenInterceptor } from './token-interceptor';
     FooterComponent,
     ViewSubqueryComponent,
     AllUsersComponent,
+    ForgotPasswordComponent,
+    VerifyOTPComponent,
+    MyProfileComponent,
+    MyPostComponent,
+    MyCommentsComponent,
+    UserProfileComponent,
+    ViewUserProfileComponent,
   ],
   imports: [
     BrowserModule,

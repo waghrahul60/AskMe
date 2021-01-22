@@ -1,0 +1,35 @@
+<nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/view-all-users">Users</a></li>
+    <li class="breadcrumb-item active" aria-current="user"><a routerLink="/user-profile/{{username}}">User Profile</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a routerLink="/user-profile/{{username}}/my-comments">My Comments</a></li>
+  </ol>
+</nav>
+<!-- Display Posts-->
+<mat-card class="row mt-4"  >
+    <!-- Section to Display Post Information-->
+    <div class="col-md-10  col-sd-12" style="width: 100%;">
+      <div class="row"> 
+        <div class="col-md-10 col-9" style="margin-top: 20px;margin-left: 15px; padding-left: 0px;">
+          <mat-card-content style="margin-top: 10px; width: 700px"  *ngFor="let comment of commentResponse.slice().reverse()">
+            <div class="row alert alert-primary" role="alert">
+                <div class="col">
+                    <div class="d-flex">
+                        <a routerLink="/user/comment.username">{{comment.userName}}</a>
+                        <p>{{ comment.createdDate }}</p>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <b>{{comment.text}}</b>
+                    <br>
+                    <a (click)="deleteComment(comment.id)" routerLlink="/my-comments" *ngIf="deleteButton">Delete</a>
+                </div>
+            </div>
+          </mat-card-content>
+         
+        </div>
+      </div>
+    </div>
+</mat-card>

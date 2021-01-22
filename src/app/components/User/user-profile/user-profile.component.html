@@ -1,0 +1,87 @@
+ <!-- Breadcrumb -->
+ <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+  </ol>
+</nav>
+<!-- /Breadcrumb -->
+<!-- Display Posts-->
+<mat-card class="row mt-4">
+    <!-- Section to Display Post Information-->
+    <div class="col-md-10  col-sd-12" style="width: 100%;">
+      <div class="row">
+        
+        <div class="col-md-10 col-9" style="margin-top: 20px;margin-left: 15px; padding-left: 0px;">
+         
+          <mat-card-content style="margin-top: 30px">
+            <div class="row gutters-sm">
+             
+              <div class="col-md-12" style="width: fit-content; ">
+                <div class="card" style="border: 1px solid grey;">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">First Name</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ userDetails.firstName }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Last Name</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ userDetails.lastName }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Username</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ userDetails.username }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ userDetails.email }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Role</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ userDetails.whoAreYou }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+          <div class="main-body">
+    
+           
+      
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</mat-card>

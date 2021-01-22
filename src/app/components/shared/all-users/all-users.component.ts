@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { AllUserService } from 'src/app/service/all-user.service';
 import { UserModel } from './user-model';
@@ -12,7 +14,8 @@ export class AllUsersComponent implements OnInit {
 
   users: Array<UserModel> = [];
 
-  constructor(private allUserService:AllUserService) { }
+  constructor(private allUserService:AllUserService,private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.allUserService.getAllUsers().subscribe(data =>{
@@ -21,6 +24,10 @@ export class AllUsersComponent implements OnInit {
     },error=>{
       throwError(error);
     })
+  }
+
+  viewProfile(userId:number){
+    this.router.navigateByUrl('/view-user-profile/'+ userId);
   }
 
 }

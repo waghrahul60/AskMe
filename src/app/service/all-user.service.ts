@@ -17,5 +17,12 @@ export class AllUserService {
     return this.httpClient.get<Array<UserModel>>(USER_URL+'all');
   }
 
+  emailExist(emailId:string):Observable<any>{
+    return this.httpClient.get<any>(USER_URL + 'email/' + emailId);
+  }
+
+  getUserData(id:number):Observable<any>{
+    return this.httpClient.get<any>(USER_URL + id);
+  }
 
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommentPayload } from './comment-payload';
+import { CommentResponse } from './comment-response';
 
 const COMMENT_URL = 'http://localhost:8080/api/comments/';
 
@@ -20,8 +21,8 @@ export class CommentService {
     return this.httpClient.post<any>(COMMENT_URL, commentPayload);
   }
 
-  getAllCommentByUser(username: string): Observable<CommentPayload[]>{
-    return this.httpClient.get<CommentPayload[]>(COMMENT_URL+'by-user/'+username);
+  getAllCommentByUser(username: string): Observable<CommentResponse>{
+    return this.httpClient.get<CommentResponse>(COMMENT_URL+'by-user/'+username);
   }
 
   deleteCommentById(id: number, userId:number):Observable<any>{
