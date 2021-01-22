@@ -23,7 +23,8 @@ export class CommentService {
   getAllCommentByUser(username: string): Observable<CommentPayload[]>{
     return this.httpClient.get<CommentPayload[]>(COMMENT_URL+'by-user/'+username);
   }
-  
 
-
+  deleteCommentById(id: number, userId:number):Observable<any>{
+    return this.httpClient.get<any>(COMMENT_URL + "delete/" +id +'/'+userId);
+  }
 }

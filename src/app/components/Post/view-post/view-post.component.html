@@ -41,15 +41,17 @@
            
             </form>
           </div>
-          <div class="row alert alert-primary" role="alert" *ngFor="let comment of comments.slice().reverse()">
+          <div class="row alert alert-primary" role="alert" *ngFor="let comment of commentRes.slice().reverse()">
             <div class="col">
               <div class="d-flex">
                 <a routerLink="/user/comment.username">{{comment.userName}}</a><p>{{ comment.createdDate }}</p>
               </div>
               <div>
-                
+                <hr>
               </div>
               <b>{{comment.text}}</b>
+            <br>
+              <a (click)="deleteComment(comment.id)" routerLink="/view-post/{{post.postId}}" *ngIf="deleteButton">Delete</a>
             </div>
           </div>
         </div>

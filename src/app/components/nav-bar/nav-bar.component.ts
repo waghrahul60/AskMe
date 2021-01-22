@@ -9,13 +9,14 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  private roles: string[] | undefined;
+  private roles: string[] | any;
   
   showAdminBoard = false;
 
   isLoggedIn: boolean | any;
   username: string | undefined;
   role:Array<string> | any;
+  reload:boolean|any;
 
   constructor(private authService: AuthService, private router: Router,
     private localStorage:LocalStorageService) { }
@@ -27,9 +28,17 @@ export class NavBarComponent implements OnInit {
     this.username = this.authService.getUserName();
 
     this.role = this.localStorage.retrieve('roles');
-    
-    console.log("tahul", this.localStorage.retrieve('roles'));
+    this.roles = this.role.name;
+    console.log("tahul", this.roles);
+    this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+    // if (!localStorage.store('foo')) { 
+    //   localStorage.store('foo', 'no reload'); 
+    //   location.reload();
+    // } else {
+    //   localStorage.clear('foo');
+    // }
 
+    
   }
 
   logout() {

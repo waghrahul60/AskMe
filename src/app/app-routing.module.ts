@@ -7,8 +7,10 @@ import { LoginComponent } from './components/login/login.component';
 import { CreatePostComponent } from './components/Post/create-post/create-post.component';
 import { ViewPostComponent } from './components/Post/view-post/view-post.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AllUsersComponent } from './components/shared/all-users/all-users.component';
 import { CreateSubqueryComponent } from './components/subquery/create-subquery/create-subquery.component';
 import { ListSubqueryComponent } from './components/subquery/list-subquery/list-subquery.component';
+import { ViewSubqueryComponent } from './components/subquery/view-subquery/view-subquery.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
@@ -19,8 +21,10 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, pathMatch:'full',canActivate: [AuthGuard]},
   { path: 'create-post', component: CreatePostComponent,canActivate: [AuthGuard]},
   { path: 'view-post/:id', component: ViewPostComponent,canActivate: [AuthGuard]},
-  { path: 'view-subquery', component: ListSubqueryComponent,canActivate: [AuthGuard]},
+  { path: 'list-subquery', component: ListSubqueryComponent,canActivate: [AuthGuard]},
+  { path: 'view-subquery/:id', component: ViewSubqueryComponent,canActivate: [AuthGuard]},
   { path: 'create-subquery', component: CreateSubqueryComponent,canActivate: [AuthGuard] },
+  { path: 'view-all-users', component: AllUsersComponent,canActivate: [AuthGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

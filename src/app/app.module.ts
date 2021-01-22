@@ -24,7 +24,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreatePostComponent } from './components/Post/create-post/create-post.component';
 import { ViewPostComponent } from './components/Post/view-post/view-post.component';
 import { CreateSubqueryComponent } from './components/subquery/create-subquery/create-subquery.component';
@@ -35,6 +35,9 @@ import { PostLookComponent } from './components/shared/post-look/post-look.compo
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { VoteButtonComponent } from './components/shared/vote-button/vote-button.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { ViewSubqueryComponent } from './components/subquery/view-subquery/view-subquery.component';
+import { AllUsersComponent } from './components/shared/all-users/all-users.component';
+import { tokenInterceptor } from './token-interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     PostLookComponent,
     VoteButtonComponent,
     FooterComponent,
+    ViewSubqueryComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,11 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     
     
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: tokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

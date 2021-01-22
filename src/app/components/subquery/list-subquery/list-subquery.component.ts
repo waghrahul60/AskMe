@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { SubqueryModel } from 'src/app/service/subquery-model';
 import { SubqueryService } from 'src/app/service/subquery.service';
@@ -13,7 +14,7 @@ export class ListSubqueryComponent implements OnInit {
 
   subquery: Array<SubqueryModel> | any;
 
-  constructor(private subqueryService:SubqueryService) { }
+  constructor(private subqueryService:SubqueryService, private router: Router) { }
 
   ngOnInit(): void {
     this.subqueryService.getAllSubqueries().subscribe(data => {
@@ -22,5 +23,10 @@ export class ListSubqueryComponent implements OnInit {
     }, error => {
       throwError(error);
     })
+  }
+
+  goToSubquery(id: number): void {
+    console.log("Rahul")
+    this.router.navigateByUrl('/view-subquery/' + id);
   }
 }

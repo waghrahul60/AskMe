@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'ngx-webstorage';
 import { throwError } from 'rxjs';
 
 import { PostModel } from 'src/app/service/post-model';
 import { PostService } from 'src/app/service/post.service';
 import { CommentPayload } from '../../comments/comment-payload';
+import { CommentResponse } from '../../comments/comment-response';
 import { CommentService } from '../../comments/comment.service';
 
 @Component({
@@ -22,15 +24,18 @@ export class ViewPostComponent implements OnInit {
   commentForm: FormGroup | any;
   commentPayload : CommentPayload| any;
   comments: CommentPayload[] | any;
+  deleteButton:boolean|any;
+  commentRes:CommentResponse[]|any;
 
 
   constructor(private postService:PostService,
     private activateRoute: ActivatedRoute,
     private router: Router,
     private commentService:CommentService,
-    private localStorage:LocalStorageService) {
+    private localStorage:LocalStorageService,
+    private toster: ToastrService) {
 
-      this.postId = this.activateRoute.snapshot.params.id;
+    this.postId = this.activateRoute.snapshot.params.id;
       
       
 
@@ -46,8 +51,16 @@ export class ViewPostComponent implements OnInit {
      }
 
   ngOnInit(): void {
+   
     this.getPostById();
     this.getCommentForPost();
+    this.deleteButton = true;
+    
+    
+    if(this.commentRes.username === this.localStorage.retrieve('username')){
+     
+      this.toster.warning(this.localStorage.retrieve('username'));
+    }
   }
 
   private getPostById(){
@@ -74,16 +87,30 @@ export class ViewPostComponent implements OnInit {
        this.getCommentForPost();
      },(error =>{
        throwError(error);
-       
-     }))
+     }));
   }
 
   getCommentForPost(){
     this.commentService.getAllCommentForPost(this.postId).subscribe(data=>{
       console.log('Data = ',data);
-      this.comments = data;
+      this.commentRes = data;
+      console.log("judsjhgfiudsk=",this.commentRes);
     },error=>{
       throwError(error);
     });
+  }
+
+  deleteComment(para:any){
+   var id = this.localStorage.retrieve('id');
+    this.commentService.deleteCommentById(para,id).subscribe((data)=>{
+      if(data){
+        this.toster.success("Comment Deleted!!!!");
+      }else{
+        this.toster.warning("Can not delete Other's Comment");
+      }
+      this.getCommentForPost();
+    },error=>{
+      throwError(error);
+    })
   }
 }

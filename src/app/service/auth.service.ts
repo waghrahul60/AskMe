@@ -41,7 +41,8 @@ export class AuthService {
           this.localStorage.store('refreshToken',data.refreshToken);
           this.localStorage.store('expiresAt',data.expiresAt);
           this.localStorage.store('username',data.username);
-          this.localStorage.store('roles',data.roles.values);
+          this.localStorage.store('roles',data.roles[0]);
+          this.localStorage.store('id',data.id);
 
          
           this.loggedIn.emit(true);
@@ -71,8 +72,6 @@ export class AuthService {
         this.localStorage.store('expiresAt', response.expiresAt);
       }));
   }
-
-  
   
 
   // refreshTokenPayload<T>(arg0: string, refreshTokenPayload: any) {
@@ -90,8 +89,13 @@ export class AuthService {
     return this.getJwtToken() != null;
   }
 
+  getUserRole(){
+    let r = this.localStorage.retrieve('roles');
+    return r.name;
+  } 
+
   logout() {
-    this.httpClient.post('http://localhost:8080/api/auth/logout', this.refreshTokenPayload,{ responseType: 'text' })
+    this.httpClient.post(AUTH_API + 'logout', this.refreshTokenPayload,{ responseType: 'text' })
       .subscribe(data => {
         console.log(data);
       }, error => {
@@ -101,5 +105,6 @@ export class AuthService {
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
+    this.localStorage.clear('roles');
   }
 }

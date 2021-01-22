@@ -3,5 +3,6 @@ export interface LoginResponse {
     refreshToken: string;
     expiresAt: Date;
     username: string;
-    roles: Set<any>;
+    roles: Array<any>;
+    id:number;
 }

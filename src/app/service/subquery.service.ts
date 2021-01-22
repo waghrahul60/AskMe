@@ -24,7 +24,7 @@ export class SubqueryService {
 
     var h = new HttpHeaders();
     h.append('Content-Type', 'application/json');
-    h.append("Authorization",  jwtToken);
+    h.append("Authorization", "Bearer " + jwtToken);
     const httpOptions = {
       headers: h
     };
@@ -32,6 +32,10 @@ export class SubqueryService {
   }
 
   createSubqueries(subqueryModel :SubqueryModel): Observable<SubqueryModel>{
-    return this.httpClient.post<SubqueryModel>(SUBQUERY_URL,subqueryModel)
+    return this.httpClient.post<SubqueryModel>(SUBQUERY_URL,subqueryModel);
+  }
+
+  getSubqueryById(id:number): Observable<SubqueryModel> {
+    return this.httpClient.get<SubqueryModel>(SUBQUERY_URL + id);
   }
 }

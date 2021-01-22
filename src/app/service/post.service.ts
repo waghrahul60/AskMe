@@ -29,4 +29,8 @@ export class PostService {
   getAllPostByUser(name: string):Observable<Array<PostModel[]>> {
     return this.httpClient.get<Array<PostModel[]>>(POST_URL + "by_user");
   }
+
+  getPostBySubquery(id: number): Observable<Array<PostModel>> {
+    return this.httpClient.get<Array<PostModel>>(POST_URL+"by-subquery/"+id);
+  }
 }

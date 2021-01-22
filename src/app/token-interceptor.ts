@@ -3,27 +3,33 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
-import { AuthService } from './app/service/auth.service';
-import { LoginResponse } from './app/components/login/login-response.payload';
+import { AuthService } from './service/auth.service';
+import { LoginResponse } from './components/login/login-response.payload';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class TokenInterceptor implements HttpInterceptor {
+export class tokenInterceptor implements HttpInterceptor {
 
     isTokenRefreshing = false;
     refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 
-    constructor(public authService: AuthService) { }
+    constructor(public authService: AuthService, private toster:ToastrService) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+        
+        
+    if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
+            return next.handle(req);
+        }
         
        
     const jwtToken = this.authService.getJwtToken();
         console.log(jwtToken);
         if (jwtToken) {
             this.addToken(req,jwtToken);
+           // this.toster.success("Jwt present");
          }
          return next.handle(req).pipe(catchError(error => {
              if(error instanceof HttpErrorResponse && error.status === 403)
@@ -37,8 +43,10 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     addToken(req: HttpRequest<any>, jwtToken: any) {
+
         return req.clone({
-            headers: req.headers.set('Authorization','Bearer' + jwtToken)
+    
+            headers: req.headers.set('Authorization','Bearer ' + jwtToken)
         });
     }
 

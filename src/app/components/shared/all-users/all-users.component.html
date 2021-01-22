@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <mat-card>
+                <h1 style="justify-content: center; text-align: center;">All Users</h1>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content" *ngFor="let users of users">
+            <mdb-card  class="card p-4 m-3 col">
+                <!-- Card image
+                <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+                Card content -->
+                <div style="height: 50%;">
+
+                </div>
+                <mdb-card-body>
+              
+                  <!--Title-->
+                  <mdb-card-title>
+                    <h4>{{ users.firstName }}  {{ users.lastName }}</h4>
+                  </mdb-card-title>
+              
+                  <!--Text-->
+                  <mdb-card-text> 
+                      {{ users.username }}
+                      {{ users.email }}
+                  </mdb-card-text>
+              
+                  <a href="#" mdbBtn class="d-flex" color="primary" style="align-items: center; justify-content: center;" mdbWavesEffect>view Profile</a>
+                </mdb-card-body>
+            </mdb-card>
+
+        </div>
+    </div>
+</div>

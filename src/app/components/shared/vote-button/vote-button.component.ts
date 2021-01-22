@@ -50,15 +50,12 @@ export class VoteButtonComponent implements OnInit {
     this.votePayload.voteType = VoteType.UPVOTE;
     this.vote();
     this.downVoteColour ='';
-    this.upVote = true;
-    this.downVote= false;
+    
   }
   downvotePost(){
     this.votePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
     this.upVoteColour='';
-    this.downVote= true;
-    this.upVote = false;
    
   }
 
@@ -69,14 +66,14 @@ export class VoteButtonComponent implements OnInit {
       this.toastr.success("vote added");
     },error=>{
       throwError(error);
-      this.toastr.error("ljwfh");
-    })
+      this.toastr.error(error.error.message);
+    });
   }
 
   private updateVoteDetails(){
     this.postService.getPost(this.post.id).subscribe(post =>{
       this.post = post;
-    })
+    });
   }
 
  

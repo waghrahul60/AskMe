@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/user');
       this.toastr.success('Login Successful');
 
-      console.log("data",data);
+     
     },(error: any) => {
         this.isError = true;
         throwError(error);

@@ -1,5 +1,5 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar fixed-top  navbar-expand-lg navbar-dark    light-blue accent-4"  [containerInside]="false">
+<mdb-navbar  SideClass="navbar fixed-top  navbar-expand-lg navbar-dark    light-blue accent-4"  [containerInside]="false">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" href="#">AskMe</a></mdb-navbar-brand>
@@ -12,18 +12,17 @@
           <a href="/home" class="nav-link waves-light" routerLink="home" mdbWavesEffect>Home</a>
         </li>
         <li class="nav-item">
-          <a href="/admin" class="nav-link waves-light" routerLink="admin" mdbWavesEffect>admin<span class="sr-only">(current)</span></a>
+          <a href="/admin" class="nav-link waves-light" routerLink="admin"*ngIf="showAdminBoard" mdbWavesEffect>admin<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a href="/user" class="nav-link waves-light" routerLink="user" mdbWavesEffect>user</a>
+          <a href="/user" class="nav-link waves-light" routerLink="user" mdbWavesEffect>Home</a>
         </li>
         <li class="nav-item">
-          <a href="/view-subquery" class="nav-link waves-light" routerLink="view-subquery" mdbWavesEffect>view subquery</a>
-        </li>
+          <a href="/view-subquery" class="nav-link waves-light" routerLink="list-subquery" mdbWavesEffect>view subquery</a>
+        </li> 
         <li class="nav-item">
-          <a class="nav-link waves-light" mdbWavesEffect>{{ role }}</a>
-        </li>
-        
+          <a class="nav-link waves-light" routerLink="view-all-users" mdbWavesEffect>view Users</a>
+        </li> 
       </ul>
       <!-- Links -->
 

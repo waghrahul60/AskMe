@@ -8,17 +8,16 @@
                       <h1 class="display-4" style="text-align: center; font-weight: bold;">Subquery List</h1>
                       <ul class="list-group">
                         <li *ngFor="let s of subquery" class="list-group-item">
-                            <a routerLink ="">{{ s.name }}</a>
+                            <a routerLink ="/view-subquery/{{ s.id }}"(click)="goToSubquery(s.id)">{{ s.name }}</a>
                         </li>
                       </ul>
                      
                     </div>
-                  </div>
-                
+                  </div>   
             </div>
             
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
             <app-side-bar></app-side-bar>
             <app-subquery-side-bar></app-subquery-side-bar>
         </div>
