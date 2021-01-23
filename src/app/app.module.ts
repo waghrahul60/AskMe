@@ -24,7 +24,6 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreatePostComponent } from './components/Post/create-post/create-post.component';
 import { ViewPostComponent } from './components/Post/view-post/view-post.component';
 import { CreateSubqueryComponent } from './components/subquery/create-subquery/create-subquery.component';
@@ -37,7 +36,6 @@ import { VoteButtonComponent } from './components/shared/vote-button/vote-button
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { ViewSubqueryComponent } from './components/subquery/view-subquery/view-subquery.component';
 import { AllUsersComponent } from './components/shared/all-users/all-users.component';
-import { tokenInterceptor } from './token-interceptor';
 import { ForgotPasswordComponent } from './components/ForgotPassword/forgot-password/forgot-password.component';
 import { VerifyOTPComponent } from './components/ForgotPassword/verify-otp/verify-otp.component';
 import { MyProfileComponent } from './components/User/my-profile/my-profile.component';
@@ -45,6 +43,9 @@ import { MyPostComponent } from './components/User/my-post/my-post.component';
 import { MyCommentsComponent } from './components/User/my-comments/my-comments.component';
 import { UserProfileComponent } from './components/User/user-profile/user-profile.component';
 import { ViewUserProfileComponent } from './components/shared/view-user-profile/view-user-profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminFunctionComponent } from './components/shared/admin-function/admin-function.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -75,6 +76,8 @@ import { ViewUserProfileComponent } from './components/shared/view-user-profile/
     MyCommentsComponent,
     UserProfileComponent,
     ViewUserProfileComponent,
+    AdminFunctionComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -93,14 +96,11 @@ import { ViewUserProfileComponent } from './components/shared/view-user-profile/
     MatCardModule,
     EditorModule,
     MatSelectModule,
+    NgxPaginationModule,
     
     
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: tokenInterceptor,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

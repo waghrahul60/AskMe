@@ -25,4 +25,12 @@ export class AllUserService {
     return this.httpClient.get<any>(USER_URL + id);
   }
 
+  makeAdmin(id:number):Observable<any>{
+    return this.httpClient.get<any>(USER_URL+'role-admin/'+id);
+  }
+
+  makeUser(id:number):Observable<any>{
+    return this.httpClient.get<any>(USER_URL+'role-user/'+id);
+  }
+
 }

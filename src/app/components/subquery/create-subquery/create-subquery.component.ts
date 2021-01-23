@@ -53,7 +53,7 @@ export class CreateSubqueryComponent implements OnInit {
     this.subqueryModel.description = this.descFormControl.value;
 
     this.subqueryService.createSubqueries(this.subqueryModel).subscribe(data =>{
-      this.router.navigateByUrl('/view-subquery');
+      this.router.navigateByUrl('/list-subquery');
     },error =>{
       throwError(error);
     })

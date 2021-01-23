@@ -12,6 +12,7 @@ import { PostService } from 'src/app/service/post.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class PostLookComponent implements OnInit {
+  p: number = 1;
  
   posts: Array<PostModel> = [];
 

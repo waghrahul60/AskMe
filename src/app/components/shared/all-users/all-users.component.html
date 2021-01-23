@@ -7,8 +7,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col d-flex justify-content" *ngFor="let users of users">
-            <mdb-card  class="card p-4 m-3 col">
+        <div class="col d-flex justify-content" 
+        *ngFor="let users of users |paginate:{ itemsPerPage:6,currentPage:p};let i = index">
+            <mdb-card  class="card p-1 m-2 col">
                 <mdb-card-body>
                     <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
@@ -22,5 +23,6 @@
                 </mdb-card-body>
             </mdb-card>
         </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>

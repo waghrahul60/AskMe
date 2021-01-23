@@ -1,12 +1,14 @@
 <div class="container">
     <div class="row mt-4">
     <div class="col-md-8">
-        
         <div class="btn-group" role="group" aria-label="Basic example">
             <button (click)="showMyProfile()" routerLink = "user-profile" mdbBtn type="button" color="primary" class="waves-light" mdbWavesEffect>My profile</button>
             <button (click)="showMyPosts()" routerLink = "my-posts"mdbBtn type="button" color="primary" class="waves-light" mdbWavesEffect>My Posts</button>
             <button (click)="showMyComments()" routerLink = "my-comments"mdbBtn type="button" color="primary" class="waves-light" mdbWavesEffect>My Comments</button>
         </div>
+    </div>
+    <div class="col-md-4">
+        
     </div>
     </div>
     <div class="row">
@@ -14,6 +16,7 @@
             <router-outlet></router-outlet>
         </div>
         <div class="col-md-4">
+            <app-side-bar></app-side-bar>
         </div>
     </div>
 </div>

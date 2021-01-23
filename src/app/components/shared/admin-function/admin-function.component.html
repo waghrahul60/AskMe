@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col ">
+            <mdb-card>
+                <table mdbTable class="table table-striped info">
+                    <thead class="black white-text">
+                        <tr style="border: 1px solid black;">
+                            <th scope="row" style="border: 1px solid black;">First Name</th>
+                            <th scope="row">Last Name</th>
+                            <th scope="row">Username</th>
+                            <th scope="row">Email Id</th>
+                            <th scope="row">Role</th>
+                            <th scope="row">Delete</th>
+                            <th scope="row">Make Admin</th>
+                            <th scope="row">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="border: 1px solid black; font-weight: bolder;">
+                        <tr mdbTableCol *ngFor="let u of user" style="border: 1px solid black;font-weight: bolder;">
+                            <th scope="row">{{ u.firstName }}</th>
+                            <td>{{ u.lastName }}</td>
+                            <td>{{ u.username }}</td>
+                            <td>{{ u.email }}</td>
+                            <td>{{ u.whoAreYou }}</td>
+                            <td><button mdbBtn type="button" size="md" color="info" mdbWavesEffect>Delete</button></td>
+                            
+                            <td><div class="btn-group" mdbDropdown>
+                                <button mdbDropdownToggle type="button"  size="md"mdbBtn color="info" class="dropdown-toggle waves-light" mdbWavesEffect>
+                                    Select
+                                </button>
+                        
+                                <div class="dropdown-menu dropdown-primary">
+                                    <a class="dropdown-item" routerLink="/admin" (click)="makeAdmin(u.userId)">Make Admin</a>
+                                    <a class="dropdown-item" routerLink="/admin" (click)="makeUser(u.userId)">Make User</a>
+                                </div>
+                            </div></td>
+                            <td><button mdbBtn type="button" size="md" color="info" mdbWavesEffect>Info</button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </mdb-card>
+
+        </div>
+    </div>
+</div>

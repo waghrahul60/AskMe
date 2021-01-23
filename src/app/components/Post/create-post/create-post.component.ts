@@ -78,7 +78,7 @@ export class CreatePostComponent implements OnInit {
       this.toastr.success("Question Created");
     },error =>{
       throwError(error);
-      this.toastr.warning("Data Required!!!!");
+      this.toastr.warning("Data not found!!!!");
     })
   }
 

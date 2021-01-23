@@ -11,6 +11,7 @@ import { UserModel } from './user-model';
   styleUrls: ['./all-users.component.scss']
 })
 export class AllUsersComponent implements OnInit {
+  p: number = 1;
 
   users: Array<UserModel> = [];
 
