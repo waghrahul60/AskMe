@@ -11,6 +11,8 @@ import { PostService } from 'src/app/service/post.service';
   styleUrls: ['./my-post.component.scss']
 })
 export class MyPostComponent implements OnInit {
+
+  p: number = 1;
   posts: Array<PostModel> = [];
   username: string|any;
 

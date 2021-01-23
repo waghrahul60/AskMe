@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-2 col-sm-0"></div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-8">
             <mat-card class="row justify-content-center align-items-center example-card" style="height: 700px;">
                 <form (ngSubmit)="createPost()" class="example-form">
 
@@ -61,7 +61,10 @@
                 </form>
             </mat-card>
         </div>
-        <div class="col-md-2 col-sm-0"></div>
+        <div class="col-md-4 col-sm-4 mt-2">
+            <app-post-side-bar></app-post-side-bar>
+            <app-subquery-side-bar></app-subquery-side-bar>
+        </div>
     </div>
 </div>
 

@@ -11,6 +11,9 @@ import { UserModel } from '../all-users/user-model';
 })
 export class AdminFunctionComponent implements OnInit {
 
+  
+  p: number = 1;
+
   user:Array<UserModel> = [];
 
   constructor(private allUserService:AllUserService,

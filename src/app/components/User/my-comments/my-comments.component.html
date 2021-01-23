@@ -12,12 +12,12 @@
     <div class="col-md-10  col-sd-12" style="width: 100%;">
       <div class="row"> 
         <div class="col-md-10 col-9" style="margin-top: 20px;margin-left: 15px; padding-left: 0px;">
-          <mat-card-content style="margin-top: 10px; width: 700px"  *ngFor="let comment of commentResponse.slice().reverse()">
+          <mat-card-content style="margin-top: 10px; width: 700px"  *ngFor="let comment of commentResponse.slice().reverse()|paginate:{ itemsPerPage:6,currentPage:p};let i = index">
             <div class="row alert alert-primary" role="alert">
                 <div class="col">
                     <div class="d-flex">
                         <a routerLink="/user/comment.username">{{comment.userName}}</a>
-                        <p>{{ comment.createdDate }}</p>
+                        <span><p>.   {{ comment.duration }}</p></span>
                     </div>
                     <div>
                         <hr>
@@ -28,6 +28,8 @@
                 </div>
             </div>
           </mat-card-content>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
          
         </div>
       </div>

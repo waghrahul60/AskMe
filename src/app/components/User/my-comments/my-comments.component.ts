@@ -13,6 +13,8 @@ import { CommentService } from '../../comments/comment.service';
 })
 export class MyCommentsComponent implements OnInit {
 
+  p: number = 1;
+
   commentResponse: CommentResponse[] | any;
   comment: Array<CommentResponse> = [];
   username: string | any;

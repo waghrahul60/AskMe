@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <div class="row post">
         <div class="col-md-1">
           <app-vote-button [post]="post"></app-vote-button>
@@ -16,7 +16,7 @@
           <mat-card-content>
             <hr />
             <div class="post-title">
-              <a class="postname" class="post-title text-primary">{{post.postName}}</a>
+              <a class="postname" class="post-title text-primary line-height: 1.5;">{{post.postName}}</a>
             </div>
             <div>
               <p class="post-text" [innerHtml]="post.description"></p>
@@ -44,7 +44,7 @@
           <div class="row alert alert-primary" role="alert" *ngFor="let comment of commentRes.slice().reverse()">
             <div class="col">
               <div class="d-flex">
-                <a routerLink="/user/comment.username">{{comment.userName}}</a><p>{{ comment.createdDate }}</p>
+                <a routerLink="/user/comment.username">{{comment.userName}}</a><span><p>.   {{ comment.duration }}</p></span>
               </div>
               <div>
                 <hr>
@@ -56,6 +56,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-md-4 mt-3">
+      <app-post-sidebar-two></app-post-sidebar-two>
+      <br>
+      <app-ads></app-ads>
     </div>
   </div>
 </div>

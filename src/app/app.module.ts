@@ -45,7 +45,13 @@ import { UserProfileComponent } from './components/User/user-profile/user-profil
 import { ViewUserProfileComponent } from './components/shared/view-user-profile/view-user-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminFunctionComponent } from './components/shared/admin-function/admin-function.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { tokenInterceptor } from './token-interceptor';
+import { AboutUsComponent } from './components/Static/about-us/about-us.component';
+import { ContactUsComponent } from './components/Static/contact-us/contact-us.component';
+import { PostSideBarComponent } from './components/shared/post-side-bar/post-side-bar.component';
+import { PostSidebarTwoComponent } from './components/shared/post-sidebar-two/post-sidebar-two.component';
+import { AdsComponent } from './components/shared/ads/ads.component';
 
 
 
@@ -77,6 +83,11 @@ import { HttpClientModule } from '@angular/common/http';
     UserProfileComponent,
     ViewUserProfileComponent,
     AdminFunctionComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    PostSideBarComponent,
+    PostSidebarTwoComponent,
+    AdsComponent,
     
   ],
   imports: [
@@ -100,7 +111,13 @@ import { HttpClientModule } from '@angular/common/http';
     
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: tokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

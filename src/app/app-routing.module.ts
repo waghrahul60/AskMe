@@ -12,6 +12,8 @@ import { ViewPostComponent } from './components/Post/view-post/view-post.compone
 import { RegisterComponent } from './components/register/register.component';
 import { AllUsersComponent } from './components/shared/all-users/all-users.component';
 import { ViewUserProfileComponent } from './components/shared/view-user-profile/view-user-profile.component';
+import { AboutUsComponent } from './components/Static/about-us/about-us.component';
+import { ContactUsComponent } from './components/Static/contact-us/contact-us.component';
 import { CreateSubqueryComponent } from './components/subquery/create-subquery/create-subquery.component';
 import { ListSubqueryComponent } from './components/subquery/list-subquery/list-subquery.component';
 import { ViewSubqueryComponent } from './components/subquery/view-subquery/view-subquery.component';
@@ -47,6 +49,10 @@ const routes: Routes = [
 
   { path: 'forgot-password', component: ForgotPasswordComponent,canActivate: [AuthGuard] },
   { path: 'verify-otp', component: VerifyOTPComponent,canActivate: [AuthGuard] },
+  { path: 'about-us', component: AboutUsComponent,canActivate: [AuthGuard] },
+  { path: 'contact-us', component: ContactUsComponent,canActivate: [AuthGuard] },
+
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

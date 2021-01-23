@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col ">
             <mdb-card>
                 <table mdbTable class="table table-striped info">
@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody style="border: 1px solid black; font-weight: bolder;">
-                        <tr mdbTableCol *ngFor="let u of user" style="border: 1px solid black;font-weight: bolder;">
+                        <tr mdbTableCol *ngFor="let u of user|paginate:{ itemsPerPage:6,currentPage:p};let i = index" style="border: 1px solid black;font-weight: bolder;">
                             <th scope="row">{{ u.firstName }}</th>
                             <td>{{ u.lastName }}</td>
                             <td>{{ u.username }}</td>
@@ -41,6 +41,11 @@
                     </tbody>
                 </table>
             </mdb-card>
+            <div class="mt-2">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+           
+
 
         </div>
     </div>
