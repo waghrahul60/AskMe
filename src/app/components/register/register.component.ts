@@ -105,8 +105,8 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/login'],
       { queryParams: { registered: 'true' } }
       );
-    }, error => {
-      console.log(error);
+    }, err => {
+      console.log(err.error);
       this.toastr.error('Registration Failed!!!!!!!!!!! Please try again')
       this.isSignUpFailed = true;
     })

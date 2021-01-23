@@ -10,9 +10,8 @@
                             <th scope="row">Username</th>
                             <th scope="row">Email Id</th>
                             <th scope="row">Role</th>
-                            <th scope="row">Delete</th>
                             <th scope="row">Make Admin</th>
-                            <th scope="row">Action</th>
+                           
 
                         </tr>
                     </thead>
@@ -23,7 +22,7 @@
                             <td>{{ u.username }}</td>
                             <td>{{ u.email }}</td>
                             <td>{{ u.whoAreYou }}</td>
-                            <td><button mdbBtn type="button" size="md" color="info" mdbWavesEffect>Delete</button></td>
+                            
                             
                             <td><div class="btn-group" mdbDropdown>
                                 <button mdbDropdownToggle type="button"  size="md"mdbBtn color="info" class="dropdown-toggle waves-light" mdbWavesEffect>
@@ -35,7 +34,7 @@
                                     <a class="dropdown-item" routerLink="/admin" (click)="makeUser(u.userId)">Make User</a>
                                 </div>
                             </div></td>
-                            <td><button mdbBtn type="button" size="md" color="info" mdbWavesEffect>Info</button></td>
+                            
 
                         </tr>
                     </tbody>
@@ -44,9 +43,6 @@
             <div class="mt-2">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
-           
-
-
         </div>
     </div>
 </div>

@@ -107,18 +107,7 @@
                     </mat-error>
                   </mat-form-field>
               
-                  
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Confirm Password</mat-label>
-                    <input type="password" matInput [formControl]="confirmpasswordFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Ex. abc@12345">
-                    <mat-error *ngIf="confirmpasswordFormControl.hasError('confirmpassword') && !confirmpasswordFormControl.hasError('required')">
-                      Please enter a valid confirm password
-                    </mat-error>
-                    <mat-error *ngIf="confirmpasswordFormControl.hasError('required')">
-                      Confirm password is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
+                
                   
                   <div class="example-button-row" class="demo">
                     <button type="submit" class="sign-up" mat-raised-button color="primary">Registration</button>
