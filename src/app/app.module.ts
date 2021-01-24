@@ -52,6 +52,7 @@ import { ContactUsComponent } from './components/Static/contact-us/contact-us.co
 import { PostSideBarComponent } from './components/shared/post-side-bar/post-side-bar.component';
 import { PostSidebarTwoComponent } from './components/shared/post-sidebar-two/post-sidebar-two.component';
 import { AdsComponent } from './components/shared/ads/ads.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -88,6 +89,7 @@ import { AdsComponent } from './components/shared/ads/ads.component';
     PostSideBarComponent,
     PostSidebarTwoComponent,
     AdsComponent,
+    ErrorComponent,
     
   ],
   imports: [

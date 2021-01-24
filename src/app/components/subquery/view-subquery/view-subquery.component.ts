@@ -31,10 +31,10 @@ export class ViewSubqueryComponent implements OnInit {
   ngOnInit(): void {
     this.subqueryService.getSubqueryById(this.subqueryId).subscribe(data=>{
       this.subquery = data;
-      this.toastr.success('data resived');
+     
     },error=>{
       throwError(error);
-      this.toastr.error('flsjkhg');
+      
     })
 
     this.getPostsBySubquery();
@@ -44,10 +44,10 @@ export class ViewSubqueryComponent implements OnInit {
   getPostsBySubquery(){
     this.postService.getPostBySubquery(this.subqueryId).subscribe(data=>{
       this.posts = data;
-      this.toastr.success('post data resived');
+      
     },error=>{
       throwError(error);
-      this.toastr.error( "post error");
+      
     })
   }
 

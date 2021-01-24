@@ -22,6 +22,7 @@ import { MyCommentsComponent } from './components/User/my-comments/my-comments.c
 import { MyPostComponent } from './components/User/my-post/my-post.component';
 import { MyProfileComponent } from './components/User/my-profile/my-profile.component';
 import { UserProfileComponent } from './components/User/user-profile/user-profile.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch:'full'},
@@ -40,17 +41,21 @@ const routes: Routes = [
   { path: 'user-profile/:username', component: MyProfileComponent, 
   children:[
     { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
-    { path: 'user-profile',component:UserProfileComponent },
-    { path: 'my-profile',component:MyProfileComponent},
-    { path: 'my-posts', component:MyPostComponent},
-    { path: 'my-comments',component:MyCommentsComponent }
+    { path: 'user-profile',component:UserProfileComponent ,canActivate: [AuthGuard]},
+    { path: 'my-profile',component:MyProfileComponent,canActivate: [AuthGuard]},
+    { path: 'my-posts', component:MyPostComponent,canActivate: [AuthGuard]},
+    { path: 'my-comments',pathMatch:'full',component:MyCommentsComponent }
   ], 
   canActivate: [AuthGuard] },
 
   { path: 'forgot-password', component: ForgotPasswordComponent,canActivate: [AuthGuard] },
   { path: 'verify-otp', component: VerifyOTPComponent,canActivate: [AuthGuard] },
-  { path: 'about-us', component: AboutUsComponent,canActivate: [AuthGuard] },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: 'contact-us', component: ContactUsComponent,canActivate: [AuthGuard] },
+  { path: '**', component: ErrorComponent},
+
+
 
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
