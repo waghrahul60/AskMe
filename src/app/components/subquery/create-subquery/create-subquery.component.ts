@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm,Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm,Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
@@ -8,7 +8,7 @@ import { SubqueryModel } from 'src/app/service/subquery-model';
 import { SubqueryService } from 'src/app/service/subquery.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -26,11 +26,11 @@ export class CreateSubqueryComponent implements OnInit {
   subqueryModel:SubqueryModel | any;
 
 
-  subqueryFormControl = new FormControl('', [
+  subqueryFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern("")
   ])
-  descFormControl = new FormControl('', [
+  descFormControl = new UntypedFormControl('', [
     Validators.required,
   ]);
   

@@ -25,6 +25,7 @@ import { UserProfileComponent } from './components/User/user-profile/user-profil
 import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch:'full'},
   { path: 'home', component: HomeComponent, pathMatch:'full'},
   { path: 'login', component: LoginComponent, pathMatch:'full'},
   { path: 'register', component: RegisterComponent, pathMatch:'full'},

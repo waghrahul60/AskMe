@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { SignupRequestPayload } from './signup-request-payload';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -24,7 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterComponent implements OnInit {
 
   signupRequestPayload: SignupRequestPayload | any;
-  signupForm: FormGroup | any;
+  signupForm: UntypedFormGroup | any;
   errorMessage:''|any;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -42,37 +42,37 @@ export class RegisterComponent implements OnInit {
                 };
    }
 
-  firstNameFormControl = new FormControl('', [
+  firstNameFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern(`^[a-zA-Z]+([a-zA-Z])$`),
     Validators.minLength(3),
     Validators.maxLength(30),
   ])
-  lastNameFormControl = new FormControl('', [
+  lastNameFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern(`^[a-zA-Z]+([a-zA-Z])$`),
     Validators.minLength(3),
     Validators.maxLength(30),
   ])
-  usernameFormControl = new FormControl('', [
+  usernameFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern(`^[a-zA-Z]+([._]?[a-zA-Z0-9]+)$`),
     Validators.minLength(3),
     Validators.maxLength(10),
   ])
-  emailFormControl = new FormControl('', [
+  emailFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.email,
   ])
-  passwordFormControl = new FormControl('', [
+  passwordFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern(`^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$`),
     Validators.minLength(3),
     Validators.maxLength(32),
   ])
-  whoAreYou = new FormControl('', [ Validators.required,])
+  whoAreYou = new UntypedFormControl('', [ Validators.required,])
 
-  confirmpasswordFormControl = new FormControl('');
+  confirmpasswordFormControl = new UntypedFormControl('');
 
 
   

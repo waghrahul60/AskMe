@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -7,7 +7,7 @@ import { AllUserService } from 'src/app/service/all-user.service';
 import { AuthService } from 'src/app/service/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -25,7 +25,7 @@ export class VerifyOTPComponent implements OnInit {
     private toastr: ToastrService) { }
 
 
-    otpormControl = new FormControl('', [
+    otpormControl = new UntypedFormControl('', [
       Validators.required
       
     ])

@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,7 @@ import { SubqueryService } from 'src/app/service/subquery.service';
 import { CreatePostPayload } from './create-post.payload';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -32,17 +32,17 @@ export class CreatePostComponent implements OnInit {
   subquery: Array<SubqueryModel> | any; 
 
  
-  titleFormControl = new FormControl('', [
+  titleFormControl = new UntypedFormControl('', [
     Validators.required,
    
   ])
-  urlFormControl = new FormControl('', [
+  urlFormControl = new UntypedFormControl('', [
    
   ]);
-  subQueryFormControl = new FormControl('', [
+  subQueryFormControl = new UntypedFormControl('', [
     Validators.required,
   ]);
-  descriptionFormControl=new FormControl('', [
+  descriptionFormControl=new UntypedFormControl('', [
    
   ]);
   matcher = new MyErrorStateMatcher();

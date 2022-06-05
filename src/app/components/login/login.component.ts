@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { LoginRequestPayload } from './login-request.payload';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -23,16 +23,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup | undefined;
+  loginForm: UntypedFormGroup | undefined;
   loginRequestPayload:LoginRequestPayload | any;
   isError: boolean | undefined;
   registerSuccessMessage: string | any;
 
-  usernameFormControl = new FormControl('', [
+  usernameFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern("")
   ])
-  passwordFormControl = new FormControl('', [
+  passwordFormControl = new UntypedFormControl('', [
     Validators.required,
   ]);
   matcher = new MyErrorStateMatcher();

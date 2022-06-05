@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormControl, FormGroup } from '@angular/forms';
+import {  UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -21,7 +21,7 @@ export class ViewPostComponent implements OnInit {
 
   postId: number | any;
   post: PostModel  | any; 
-  commentForm: FormGroup | any;
+  commentForm: UntypedFormGroup | any;
   commentPayload : CommentPayload| any;
   comments: CommentPayload[] | any;
   deleteButton:boolean|any;
@@ -39,8 +39,8 @@ export class ViewPostComponent implements OnInit {
       
       
 
-      this.commentForm = new FormGroup({
-        text: new FormControl('')
+      this.commentForm = new UntypedFormGroup({
+        text: new UntypedFormControl('')
       });
       this.commentPayload = {
         text:'parbancha pratik',
